@@ -1,0 +1,4 @@
+== Kanbas
+
+Kanbas is a Kanban board that is been drawn by your fingers on your smartphone or tablet or by your mouse
+on your desktop PC.
