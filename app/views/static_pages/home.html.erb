@@ -13,6 +13,17 @@
 				</h4>
 			</div>
 		<% end %>
-		<%= link_to_unless current_board.nil?, raw('<div class="span4 offset1 well"><h3><i class="icon-th"></i></h3><h4>Arbeiten Sie an Ihrem aktuellen Board.</h4></div>'), { controller: 'boards', action: 'show', id: current_board } %>
+		<% if !current_board.nil? %>
+			<%= link_to current_board do %>
+				<div class="span4 offset1 well">
+					<h3>
+						<i class="icon-th"></i>
+					</h3>
+					<h4>
+						Arbeiten Sie an Ihrem aktuellen Board.
+					</h4>
+				</div>
+			<% end %>
+		<% end %>
 	</div>
 </div>
