@@ -1,0 +1,142 @@
+@import "boilerplate/main";
+@import "boilerplate/normalize";
+
+//$sansFontFamily: "port-lligat-slab";
+$baseFontSize:   20px;
+$baseLineHeight: 29px;
+
+$hrBorder: #ccc;
+$textColor: #333;
+$linkColor: #08c;
+
+//$headingsFontFamily: "patua-one";
+$headingsFontWeight: bold;
+$headingsColor: #337;
+$fontAwesomePath: '/font';
+
+$sideBarInactiveColor: #dde;
+$sideBarHoverColor: darken($sideBarInactiveColor, 20%);
+$sideBarActiveColor: darken($sideBarInactiveColor, 40%);
+
+$baseBorderRadius:      4px;
+$borderRadiusLarge:     6px;
+$borderRadiusSmall:     3px;
+
+$wellBackground: #fdfdfd;
+$heroUnitBackground: $wellBackground;
+$heroUnitHeadingColor: inherit;
+$heroUnitLeadColor: inherit;
+
+@mixin box-shadow-inset($size, $opacity) {
+  <% inset_str = "inset $size $size 2*$size rgba(0,0,0,$opacity), inset 0-$size 0-$size 2*$size rgba(0,0,0,$opacity)" %>
+  -webkit-box-shadow: <%= inset_str %>;
+  -moz-box-shadow: <%= inset_str %>;
+  box-shadow: <%= inset_str %>;
+}
+
+@mixin white-blur {
+  <% inset_str = "3px 3px 8px rgba(black,.6)" %>
+  -webkit-box-shadow: <%= inset_str %>;
+  -moz-box-shadow: <%= inset_str %>;
+  box-shadow: <%= inset_str %>;
+}
+
+@mixin transparency($value) {
+  opacity:$value/100;
+  filter:alpha(opacity=$value);
+  -moz-opacity:$value/100;  
+}
+
+@import "bootstrap";
+@import "bootstrap-responsive";
+i {
+  @include transparency(100);
+}
+@import "fontawesome";
+
+a {
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.no-csstransforms {
+}
+
+@media print {
+  .navbar, .sidebar-nav, footer {
+    display: none;
+  }
+}
+
+.navbar {
+  .brand {
+    font-size: 34px;
+    line-height: 40px;
+    color: #000;
+    text-shadow: 0 1px 0 rgba(255,255,255,.15), 0 0 20px rgba(255,255,255,.1);
+    -webkit-transition: all .2s linear;
+    -webkit-transition-property: all;
+    -webkit-transition-duration: 0.2s;
+    -webkit-transition-timing-function: linear;
+    -webkit-transition-delay: initial;
+    -moz-transition: all .2s linear;
+    transition: all .2s linear;
+    &:hover {
+      color: #ddd;
+    }
+  }
+  .btn-navbar {
+    .nav-dropdown {
+      margin: 0;
+    }
+  }
+  .nav-collapse {
+    &.collapse {
+      li {
+        float: left;
+        width: 52px;
+        margin: 0;
+        padding: 0;
+        &.active a {
+          color: #fff;
+        }
+        a {
+          color: #ccc;
+          font-family: arial, sans-serif;
+          font-size: 11px;
+          font-weight: lighter;
+          line-height: 14px;
+          text-align: center;
+          letter-spacing: -0.1em;
+          margin: 0;
+          padding: 8px 2px 2px 2px;
+          i {
+            font-size: 28px;
+            text-shadow: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+#main {
+  margin-top: 60px;
+}
+
+
+footer {
+  font-size: $baseFontSize * 0.75;
+  line-height: 1.3em;
+  text-align: center;
+  margin-top: 60px;
+  margin-bottom: 40px;
+  color: lighten($textColor,40%);
+  a {
+    color: lighten($linkColor,40%);
+    &:hover {
+      color: lighten($linkColor, 30%);
+    }
+  }
+}

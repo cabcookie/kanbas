@@ -12,4 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require boilerplate/plugins
+//= require jquery-ui.custom.min
+//= require kinetic-v4.4.0.min
 //= require_tree .

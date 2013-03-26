@@ -1,0 +1,19 @@
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+        	<%= link_to 'Kanbas', { action: 'home' }, class: "brand" %>
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            	<ul class="nav-dropdown">
+            		<li class="icon-bar"></li>
+            		<li class="icon-bar"></li>
+            		<li class="icon-bar"></li>
+            	</ul>
+			</button>
+            <div class="nav-collapse collapse">
+                <ul id="navbar" class="nav pull-right">
+                	<%= render 'layouts/navigation' %>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,5 @@
+<% getNavigation.each do |n| %>
+	<li <%= 'class=active' if @active_page == n[:link] %>>
+		<%= link_to raw("<i class='icon-#{n[:icon]}'></i><br />#{n[:title]}"), { controller: "static_pages", action: n[:link] }, class: "page-link", remote: false %>
+	</li>
+<% end %>

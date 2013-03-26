@@ -5,7 +5,7 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.8'
 
 # Twitter bootstrap Gem with SASS functionality
-#gem 'bootstrap-sass', '2.1'
+gem 'bootstrap-sass', '2.1'
 
 # A nice Datepicker that works with Bootstrap
 #gem 'bootstrap-datepicker-rails', '0.6.21'
