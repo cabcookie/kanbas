@@ -14,6 +14,10 @@ module BoardsHelper
   end
   
   def current_board
-    @current_board ||= Board.find(cookies[:remember_board])
+    if cookies[:remember_board]
+      @current_board ||= Board.find(cookies[:remember_board])
+    else
+      @current_board = nil
+    end
   end
 end
