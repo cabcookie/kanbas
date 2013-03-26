@@ -1,0 +1,5 @@
+<li <%= 'class=active' if @active_page == page_id %>>
+	<%= link_to path, class: "page-link" do %>
+		<i class="icon-<%= icon %>"></i><br /><%= page_name %>
+	<% end %>
+</li>

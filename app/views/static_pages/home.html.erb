@@ -1,6 +1,25 @@
 <% provide(:title, 'Creating Kanban Boards on a Canvas') %>
-<div id="main" class="row">
-	<div class="span12">
-		Das ist der Basisrahmen für Applikationen, die aufbauen auf Twitter Bootstrap, Font Awesome, JQuery, JQuery UI, KineticJS und Modernizr.
+<div class="span10 hero-unit">
+	<h1>Kanbas</h1>
+	<h2 class="muted">Erstellen Sie Ihr Kanban Board so flexibel, wie Sie es von einem Whiteboard erwarten!</h2>
+	<div class="row">
+		<%= link_to new_board_path do %>
+			<div class="span4 well">
+				<h3>
+					<i class="icon-plus"></i>
+				</h3>
+				<h4>
+					Erstelle jetzt Dein erstes Kanban Board.
+				</h4>
+			</div>
+		<% end %>
+		<div class="span4 offset1 well">
+			<h3>
+				<i class="icon-th"></i>
+			</h3>
+			<h4>
+				Arbeiten Sie an Ihrem ersten Board.
+			</h4>
+		</div>
 	</div>
 </div>

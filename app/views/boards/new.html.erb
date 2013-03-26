@@ -1,0 +1,9 @@
+<%= provide(:title, "Create new Board") %>
+<div class="span10">
+	<h1>Neues Board erstellen</h1>
+	<%= form_for(@board, html: { class: "navbar-form", id: "board-details-form" }) do |b| %>
+		<%= b.text_field :name, placeholder: "Name des Boards", class: "span4" %>
+		<%= b.hidden_field :image %>
+		<%= b.submit "Anlegen", class: "btn btn-primary" %>
+	<% end %>
+</div>

@@ -1,0 +1,12 @@
+<%= provide(:title, "List of Boards") %>
+<div class="span10">
+	<h1>Alle Kanban Boards</h1>
+	<table class="table">
+		<% @boards.each do |b| %>
+			<tr>
+				<td><%= b[:name] %></td>
+				<td><%= b[:image] %></td>
+			</tr>
+		<% end %>
+	</table>
+</div>
