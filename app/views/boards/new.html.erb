@@ -4,6 +4,24 @@
 	<%= form_for(@board, html: { class: "navbar-form", id: "board-details-form" }) do |b| %>
 		<%= b.text_field :name, placeholder: "Name des Boards", class: "span4" %>
 		<%= b.hidden_field :image %>
-		<%= b.submit "Anlegen", class: "btn btn-primary" %>
+		<%= b.submit "Anlegen", id: "submit-board-data", class: "btn btn-primary" %>
 	<% end %>
+
+    <canvas id="kanban-board" width="800" height="600" style="position: relative;">
+    	<strong>Der Browser unterstützt leider kein HTML5 Canvas Element. Aus diesem Grund können Sie Kanbas leider nicht nutzen.</strong>
+    </canvas>
+    <div>
+    	<p>Set line width</p>
+    	<button data-toggle="lineWidth">1</button>
+    	<button data-toggle="lineWidth">2</button>
+    	<button data-toggle="lineWidth">4</button>
+    	<button data-toggle="lineWidth">8</button>
+    </div>
+    <div>
+    	<p>Set colors</p>
+    	<button data-toggle="strokeStyle">#fdd</button>
+    	<button data-toggle="strokeStyle">#dfd</button>
+    	<button data-toggle="strokeStyle">#ddf</button>
+    </div>
+
 </div>
