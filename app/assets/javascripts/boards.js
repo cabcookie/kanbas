@@ -15,6 +15,15 @@ $(document).ready(function() {
 		kanb.on("touchstart", initializeDraw);
 	}
 	
+	$('#board-details-form').submit(function() {
+		if (kanb) {
+			$('#board_image').val(kanb[0].toDataURL());
+			return img.val();
+		} else {
+			return false;
+		}
+	});
+	
 	function initializeDraw (e) {
 		if (kanb[0].getContext) {
 			ctx = kanb[0].getContext('2d');

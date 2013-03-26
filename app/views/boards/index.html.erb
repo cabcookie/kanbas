@@ -1,12 +1,16 @@
 <%= provide(:title, "List of Boards") %>
 <div class="span10">
 	<h1>Alle Kanban Boards</h1>
-	<table class="table">
-		<% @boards.each do |b| %>
-			<tr>
-				<td><%= b[:name] %></td>
-				<td><%= b[:image] %></td>
-			</tr>
-		<% end %>
-	</table>
+	<div class="row-fluid">
+		<ul id="board-list" class="thumbnails">
+			<% @boards.each do |b| %>
+				<li>
+					<%= link_to b, class: 'thumbnail' do %>
+						<img class="board-thumb" data-src="holder.js/160x120" src="<%= b[:image] %>" />
+						<h4><%= b[:name] %></h4>
+					<% end %>
+				</li>
+			<% end %>
+		</ul>
+	</div>
 </div>

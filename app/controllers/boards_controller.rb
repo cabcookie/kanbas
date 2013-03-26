@@ -7,6 +7,7 @@ class BoardsController < ApplicationController
   def create
     @board = Board.new(params[:board])
     if @board.save
+      current_board = @board
       @active_page = 'boards'
       @boards = Board.all
       render :index
@@ -21,7 +22,7 @@ class BoardsController < ApplicationController
   end
   
   def show
-    @board = Board.find(params[:board])
-    current_board = @board
+    @board = Board.find(params[:id])
+    set_board(@board)
   end
 end

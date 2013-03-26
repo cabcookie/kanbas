@@ -1,5 +1,9 @@
 #Encoding: UTF-8
 module BoardsHelper
+  def set_board(board)
+    self.current_board = board
+  end
+  
   def current_board=(board)
     if board.nil?
       cookies.delete(:remember_board)
@@ -10,6 +14,6 @@ module BoardsHelper
   end
   
   def current_board
-    @current_board ||= Board.find_by_id(cookies[:remember_board])
+    @current_board ||= Board.find(cookies[:remember_board])
   end
 end
