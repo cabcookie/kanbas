@@ -19,9 +19,19 @@
     </div>
     <div>
     	<p>Set colors</p>
-    	<button data-toggle="strokeStyle">#fdd</button>
-    	<button data-toggle="strokeStyle">#dfd</button>
-    	<button data-toggle="strokeStyle">#ddf</button>
+    	<%
+    		itv = 128
+    		(0..(256/itv)).each do |r|
+    			(0..(256/itv)).each do |g|
+    				(0..(256/itv)).each do |b|
+    					rgb = get_rgb(r*itv,g*itv,b*itv)
+    	%>
+    					<button class="strokeStyle" style="background-color: <%= rgb %>"></button>
+    	<%
+    				end
+    			end
+    		end
+    	%>
     </div>
 
 </div>

@@ -1,5 +1,7 @@
 var kanb = null;
 var ctxt = null;
+var points = Array();
+var pos = 0;
 var ease = 0.1;
 
 window.onload = init;
@@ -8,9 +10,6 @@ function init(e) {
 	kanb = document.getElementById("kanban-board");
 	if (kanb.getContext) {
 		ctxt = kanb.getContext('2d');
-		ctxt.lineWidth = 3;
-		ctxt.strokeStyle = "rgb(50,50,50)";
-		ctxt.beginPath();
 		
 		kanb.onmousedown = startDraw;
 		kanb.onmouseup = stopDraw;
@@ -22,6 +21,13 @@ function init(e) {
 
 function startDraw(e) {
 	var p = getCoords(e);
+	pos = 0;
+	points[pos] = p;
+	ctxt.lineWidth = 2;
+	ctxt.strokeStyle = "rgb(50,50,50)";
+	// This is used to have a nice anti aliasing
+	ctxt.translate(0.5, 0.5);
+	ctxt.beginPath();
 	ctxt.moveTo(p.x, p.y);
 	kanb.onmousemove = drawMouse;
 	return false;
@@ -34,8 +40,16 @@ function stopDraw(e) {
 
 function drawMouse(e) {
 	var p = getCoords(e);
-	ctxt.lineTo(p.x, p.y);
-	ctxt.stroke();
+	pos += 1;
+	points[pos] = p;
+	if (pos == 4) {
+		points[3] = { x: ((points[2].x+points[4].x)/2.0), y: ((points[2].y+points[4].y)/2.0) };
+		ctxt.bezierCurveTo(points[1].x, points[1].y, points[2].x, points[2].y, points[3].x, points[3].y);
+		ctxt.stroke();
+		points[0] = points[3];
+		points[1] = points[4];
+		pos = 1;
+	}
 	return false;
 }
 
